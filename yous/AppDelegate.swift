@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow()
+        if let window = window {
+            let vc = SignupViewController()
+            window.rootViewController = vc
+            window.makeKeyAndVisible()
+        }
+        
         return true
     }
 
