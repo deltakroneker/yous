@@ -13,6 +13,12 @@ class SignupViewController: UIViewController {
     
     let logoWidth: CGFloat = 50
     let sideMargin: CGFloat = 15
+    
+    let scrollView: UIScrollView = {
+        let view  = UIScrollView()
+        view.delaysContentTouches = false
+        return view
+    }()
 
     let logoImageView: UIImageView = {
         let view = UIImageView(image: UIImage(named: "logo"))
@@ -22,79 +28,178 @@ class SignupViewController: UIViewController {
     let signupLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign Up"
-        label.font = UIFont(name: "EncodeSans-Medium", size: 20)
+        label.font = UIFont(name: "EncodeSans-Regular", size: 20)
         return label
     }()
     
-    let facebookButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle("Continue with Facebook", for: .normal)
-        button.backgroundColor = UIColor(hexString: "0084FF")
-        button.titleLabel?.font = UIFont(name: "EncodeSans-Medium", size: 15)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.layer.cornerRadius = 5
-        button.layer.masksToBounds = true
+    lazy var arrowButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "arrow_left"), for: .normal)
+        button.tintColor = UIColor.black
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(arrowButtonPressed), for: .touchUpInside)
         return button
     }()
     
-    let googleButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle("Continue with Google", for: .normal)
-        button.backgroundColor = UIColor(hexString: "F4F4F4")
-        button.titleLabel?.font = UIFont(name: "EncodeSans-Medium", size: 15)
-        button.setTitleColor(UIColor.black, for: .normal)
+    lazy var facebookButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Continue with Facebook", for: .normal)
+        button.backgroundColor = UIColor(hexString: "0084FF")
+        button.setImage(UIImage(named: "facebook")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageView?.snp.makeConstraints({ (make) in
+            make.height.width.equalTo(25)
+            make.leading.equalTo(button.snp_leadingMargin).offset(30)
+            make.centerY.equalTo(button.snp.centerY)
+        })
+        button.titleLabel?.font = UIFont(name: "EncodeSans-Regular", size: 15)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.snp.makeConstraints({ (make) in
+            make.centerX.equalTo(button.snp.centerX)
+            make.centerY.equalTo(button.snp.centerY)
+        })
+        button.titleLabel?.textAlignment = .center
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(continueWithFacebookButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var googleButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Continue with Google", for: .normal)
+        button.backgroundColor = UIColor(hexString: "F4F4F4")
+        button.setImage(UIImage(named: "google")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageView?.snp.makeConstraints({ (make) in
+            make.height.width.equalTo(25)
+            make.leading.equalTo(button.snp_leadingMargin).offset(30)
+            make.centerY.equalTo(button.snp.centerY)
+        })
+        button.titleLabel?.font = UIFont(name: "EncodeSans-Regular", size: 15)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.titleLabel?.snp.makeConstraints({ (make) in
+            make.centerX.equalTo(button.snp.centerX)
+            make.centerY.equalTo(button.snp.centerY)
+        })
+        button.titleLabel?.textAlignment = .center
+        button.layer.cornerRadius = 5
+        button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(continueWithGoogleButtonPressed), for: .touchUpInside)
         return button
     }()
     
     let orSignupWithLabel: UILabel = {
         let label = UILabel()
         label.text = "Or SignUp With"
-        label.font = UIFont(name: "EncodeSans-Medium", size: 20)
+        label.font = UIFont(name: "EncodeSans-Regular", size: 20)
         return label
     }()
     
-    let emailTextField: SideImageTextField = {
+    lazy var emailTextField: SideImageTextField = {
         let textField = SideImageTextField(placeholder: "Email address", left: .email, right: .none)
+        textField.delegate = self
         return textField
     }()
     
-    let passwordTextField: SideImageTextField = {
+    lazy var passwordTextField: SideImageTextField = {
         let textField = SideImageTextField(placeholder: "Password", left: .password, right: .show)
+        textField.touched = eyeTouched
         textField.isSecureTextEntry = true
+        textField.delegate = self
         return textField
     }()
     
-    let continueButton: UIButton = {
-        let button = UIButton(type: .custom)
+    lazy var continueButton: UIButton = {
+        let button = UIButton(type: .system)
         button.setTitle("Continue", for: .normal)
         button.backgroundColor = UIColor(hexString: "FA497C")
-        button.titleLabel?.font = UIFont(name: "EncodeSans-SemiBold", size: 20)
+        button.layer.masksToBounds = false
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 20.0)
+        button.layer.shadowOpacity = 0.20
+        button.layer.shadowRadius = 25
+        button.titleLabel?.font = UIFont(name: "EncodeSans-Regular", size: 20)
         button.setTitleColor(UIColor.white, for: .normal)
+        button.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        view.clipsToBounds = true
         
-        [logoImageView, signupLabel, facebookButton, googleButton,
+        view.addSubview(scrollView)
+        
+        [logoImageView, signupLabel, arrowButton, facebookButton, googleButton,
          orSignupWithLabel, emailTextField, passwordTextField, continueButton].forEach {
-            view.addSubview($0)
+            scrollView.addSubview($0)
         }
         
         setupSnapKitConstraints()
+        setupKeyboard()
+    }
+    
+    // MARK: Keyboard hiding
+    
+    func setupKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         hideKeyboardWhenTappedAround()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        guard let userInfo = notification.userInfo, let frame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        scrollView.transform = CGAffineTransform(translationX: 0, y: -frame.height)
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        scrollView.transform = CGAffineTransform(translationX: 0, y: 0)
+    }
+    
+    // MARK: Buttons pressed
+    
+    func eyeTouched(){
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+    }
+    
+    @objc func arrowButtonPressed() {
+        
+    }
+    
+    @objc func continueWithFacebookButtonPressed() {
+        
+    }
+    
+    @objc func continueWithGoogleButtonPressed() {
+        
+    }
+    
+    @objc func continueButtonPressed() {
+        let rpvc = ResetPasswordViewController()
+        self.present(rpvc, animated: true, completion: nil)
+    }
+    
+    // MARK: SnapKit
 
     func setupSnapKitConstraints(){
-        let safeArea = self.view.safeAreaLayoutGuide
+        let outerSafeArea = self.view.safeAreaLayoutGuide
+        let safeArea = scrollView.safeAreaLayoutGuide
+        
+        scrollView.snp.makeConstraints { (make) in
+            make.width.height.equalTo(outerSafeArea)
+            make.centerX.centerY.equalTo(outerSafeArea)
+        }
         
         logoImageView.snp.makeConstraints { (make) in
             make.width.height.equalTo(self.logoWidth)
             make.centerX.equalTo(safeArea)
-            make.top.equalTo(100)
+            make.top.equalTo(20)
         }
         
         signupLabel.snp.makeConstraints { (make) in
@@ -102,8 +207,14 @@ class SignupViewController: UIViewController {
             make.centerX.equalTo(safeArea)
         }
         
+        arrowButton.snp.makeConstraints { (make) in
+            make.centerY.equalTo(signupLabel.snp.centerY)
+            make.leading.equalTo(safeArea).offset(sideMargin)
+            make.height.width.equalTo(30)
+        }
+        
         facebookButton.snp.makeConstraints { (make) in
-            make.top.equalTo(signupLabel.snp_bottomMargin).offset(30)
+            make.top.equalTo(signupLabel.snp_bottomMargin).offset(40)
             make.leading.equalTo(safeArea).offset(sideMargin)
             make.trailing.equalTo(safeArea).inset(sideMargin)
             make.centerX.equalTo(safeArea)
@@ -140,7 +251,7 @@ class SignupViewController: UIViewController {
         }
         
         continueButton.snp.makeConstraints { (make) in
-            make.top.equalTo(passwordTextField.snp_bottomMargin).offset(60)
+            make.top.equalTo(passwordTextField.snp_bottomMargin).offset(40)
             make.leading.equalTo(safeArea).offset(2*sideMargin)
             make.trailing.equalTo(safeArea).inset(2*sideMargin)
             make.centerX.equalTo(safeArea)
@@ -149,4 +260,13 @@ class SignupViewController: UIViewController {
         
     }
 
+}
+
+extension SignupViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }

@@ -27,6 +27,8 @@ class SideImageTextField: UITextField {
     let displacement: CGFloat = 20
     let iconWidth: CGFloat = 20
     let fontSize: CGFloat = 16
+    
+    @objc var touched: (() -> ())?
 
     init(placeholder: String, left: TextFieldLeftImage, right: TextFieldRightImage) {
         super.init(frame: .zero)
@@ -81,10 +83,11 @@ class SideImageTextField: UITextField {
         switch(imageRight) {
             
         case .show:
-            rightView = UIImageView(frame: CGRect(x: 0, y: 0, width: iconWidth, height: iconWidth))
-            if let rv = rightView as? UIImageView {
-                rv.image = UIImage(named: "show")
-                rv.contentMode = .scaleAspectFit
+            rightView = UIButton(frame: CGRect(x: 0, y: 0, width: iconWidth, height: iconWidth))
+            if let rv = rightView as? UIButton {
+                rv.imageView?.contentMode = .scaleAspectFit
+                rv.setImage(UIImage(named: "show"), for: .normal)
+                rv.addTarget(self, action: #selector(touchDown), for: .touchDown)
             }
         case .none:
             rightViewMode = .never
@@ -102,6 +105,11 @@ class SideImageTextField: UITextField {
         var textRect = super.rightViewRect(forBounds: bounds)
         textRect.origin.x -= displacement
         return textRect
+    }
+    
+    @objc func touchDown() {
+        guard let touched = touched else { return }
+        touched()
     }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController {   // NOT YET FINISHED
     
     let logoImageView: UIImageView = {
         let view = UIImageView(image: UIImage(named: "logo"))
@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     let pleaseSignInLabel: UILabel = {
         let label = UILabel()
         label.text = "Please sign in to your account to continue with YOUS!"
-        label.font = UIFont(name: "EncodeSans-Medium", size: 18)
+        label.font = UIFont(name: "EncodeSans-Regular", size: 18)
         label.textColor = UIColor.gray
         label.numberOfLines = 0
         label.textAlignment = .center

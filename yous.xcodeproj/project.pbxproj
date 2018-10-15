@@ -11,14 +11,16 @@
 		D2393ADA2173980800B8449E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2393AD92173980800B8449E /* Assets.xcassets */; };
 		D2393ADD2173980800B8449E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2393ADB2173980800B8449E /* LaunchScreen.storyboard */; };
 		D272F3DE21739E2E003AD8AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272F3DD21739E2E003AD8AB /* LoginViewController.swift */; };
-		D272F3EA2173A645003AD8AB /* EncodeSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D272F3E12173A645003AD8AB /* EncodeSans-SemiBold.ttf */; };
-		D272F3EB2173A645003AD8AB /* EncodeSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D272F3E22173A645003AD8AB /* EncodeSans-Regular.ttf */; };
-		D272F3ED2173A645003AD8AB /* EncodeSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D272F3E42173A645003AD8AB /* EncodeSans-Bold.ttf */; };
-		D272F3F12173A645003AD8AB /* EncodeSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D272F3E82173A645003AD8AB /* EncodeSans-Medium.ttf */; };
 		D272F3F62173A9ED003AD8AB /* SideImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272F3F52173A9ED003AD8AB /* SideImageTextField.swift */; };
 		D272F3F82173BEF0003AD8AB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272F3F72173BEF0003AD8AB /* SignupViewController.swift */; };
 		D272F3FD2173C5AA003AD8AB /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272F3FC2173C5AA003AD8AB /* UIColorExtensions.swift */; };
 		D272F3FF2173CFE7003AD8AB /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D272F3FE2173CFE7003AD8AB /* UIViewControllerExtensions.swift */; };
+		D283296821747B23001A5BE0 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283296721747B23001A5BE0 /* ResetPasswordViewController.swift */; };
+		D283296A21747B36001A5BE0 /* ComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283296921747B36001A5BE0 /* ComingSoonViewController.swift */; };
+		D283297721747EF0001A5BE0 /* EncodeSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D283297321747EF0001A5BE0 /* EncodeSans-Medium.ttf */; };
+		D283297821747EF0001A5BE0 /* EncodeSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D283297421747EF0001A5BE0 /* EncodeSans-Regular.ttf */; };
+		D283297921747EF0001A5BE0 /* EncodeSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D283297521747EF0001A5BE0 /* EncodeSans-SemiBold.ttf */; };
+		D283297A21747EF0001A5BE0 /* EncodeSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D283297621747EF0001A5BE0 /* EncodeSans-Bold.ttf */; };
 		DBBB2F15FA074DF31C135CB1 /* Pods_yous.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64010A83ACF1BF6A1A22F106 /* Pods_yous.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,14 +34,16 @@
 		D2393ADC2173980800B8449E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2393ADE2173980800B8449E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D272F3DD21739E2E003AD8AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D272F3E12173A645003AD8AB /* EncodeSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EncodeSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		D272F3E22173A645003AD8AB /* EncodeSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EncodeSans-Regular.ttf"; sourceTree = "<group>"; };
-		D272F3E42173A645003AD8AB /* EncodeSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EncodeSans-Bold.ttf"; sourceTree = "<group>"; };
-		D272F3E82173A645003AD8AB /* EncodeSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EncodeSans-Medium.ttf"; sourceTree = "<group>"; };
 		D272F3F52173A9ED003AD8AB /* SideImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideImageTextField.swift; sourceTree = "<group>"; };
 		D272F3F72173BEF0003AD8AB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		D272F3FC2173C5AA003AD8AB /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		D272F3FE2173CFE7003AD8AB /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		D283296721747B23001A5BE0 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		D283296921747B36001A5BE0 /* ComingSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonViewController.swift; sourceTree = "<group>"; };
+		D283297321747EF0001A5BE0 /* EncodeSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Medium.ttf"; path = "../../../../../Downloads/Encode_Sans/EncodeSans-Medium.ttf"; sourceTree = "<group>"; };
+		D283297421747EF0001A5BE0 /* EncodeSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Regular.ttf"; path = "../../../../../Downloads/Encode_Sans/EncodeSans-Regular.ttf"; sourceTree = "<group>"; };
+		D283297521747EF0001A5BE0 /* EncodeSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-SemiBold.ttf"; path = "../../../../../Downloads/Encode_Sans/EncodeSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		D283297621747EF0001A5BE0 /* EncodeSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EncodeSans-Bold.ttf"; path = "../../../../../Downloads/Encode_Sans/EncodeSans-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 			children = (
 				D272F3DD21739E2E003AD8AB /* LoginViewController.swift */,
 				D272F3F72173BEF0003AD8AB /* SignupViewController.swift */,
+				D283296721747B23001A5BE0 /* ResetPasswordViewController.swift */,
+				D283296921747B36001A5BE0 /* ComingSoonViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -107,10 +113,10 @@
 		D272F3DF2173A62F003AD8AB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				D272F3E42173A645003AD8AB /* EncodeSans-Bold.ttf */,
-				D272F3E82173A645003AD8AB /* EncodeSans-Medium.ttf */,
-				D272F3E22173A645003AD8AB /* EncodeSans-Regular.ttf */,
-				D272F3E12173A645003AD8AB /* EncodeSans-SemiBold.ttf */,
+				D283297621747EF0001A5BE0 /* EncodeSans-Bold.ttf */,
+				D283297321747EF0001A5BE0 /* EncodeSans-Medium.ttf */,
+				D283297421747EF0001A5BE0 /* EncodeSans-Regular.ttf */,
+				D283297521747EF0001A5BE0 /* EncodeSans-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -201,12 +207,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D272F3ED2173A645003AD8AB /* EncodeSans-Bold.ttf in Resources */,
+				D283297A21747EF0001A5BE0 /* EncodeSans-Bold.ttf in Resources */,
+				D283297821747EF0001A5BE0 /* EncodeSans-Regular.ttf in Resources */,
+				D283297921747EF0001A5BE0 /* EncodeSans-SemiBold.ttf in Resources */,
 				D2393ADD2173980800B8449E /* LaunchScreen.storyboard in Resources */,
 				D2393ADA2173980800B8449E /* Assets.xcassets in Resources */,
-				D272F3EB2173A645003AD8AB /* EncodeSans-Regular.ttf in Resources */,
-				D272F3F12173A645003AD8AB /* EncodeSans-Medium.ttf in Resources */,
-				D272F3EA2173A645003AD8AB /* EncodeSans-SemiBold.ttf in Resources */,
+				D283297721747EF0001A5BE0 /* EncodeSans-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,8 +274,10 @@
 				D272F3F62173A9ED003AD8AB /* SideImageTextField.swift in Sources */,
 				D272F3F82173BEF0003AD8AB /* SignupViewController.swift in Sources */,
 				D2393AD32173980700B8449E /* AppDelegate.swift in Sources */,
+				D283296A21747B36001A5BE0 /* ComingSoonViewController.swift in Sources */,
 				D272F3FF2173CFE7003AD8AB /* UIViewControllerExtensions.swift in Sources */,
 				D272F3FD2173C5AA003AD8AB /* UIColorExtensions.swift in Sources */,
+				D283296821747B23001A5BE0 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
